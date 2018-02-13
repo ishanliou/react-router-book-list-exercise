@@ -1,0 +1,9 @@
+.Books .menu-list {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.Books .menu-list a {
+  font-size: 1.3rem;
+  border-bottom: 1px solid #eaeaea;
+}
