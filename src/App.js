@@ -31,18 +31,12 @@ class App extends Component {
             
             {/* Left Column */}
             <div className="column is-4">
-              <Route path="/books" render={() => {
-                return <BookList books={this.state.books} />
-              }} />
+              <BookList />
             </div>
 
             {/* Right Column */}
             <div className="column is-8">
-              <Route path="/books/:id" render={(routeProps) => {
-                const bookId = routeProps.match.params.id
-                const book = this.state.books.find(b => b._id === bookId)
-                return <BookDetail book={book} />
-              }} />
+              <BookDetail />
             </div>
 
           </div>
