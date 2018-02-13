@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   render() {
+    const { books } = this.state
     return (
       <div className="App">
         {/* Redirect to "/books" from the "/" root URL */}
@@ -31,12 +32,20 @@ class App extends Component {
             
             {/* Left Column */}
             <div className="column is-4">
-              <BookList />
+              <Route path="/books" render={() => {
+                return <BookList books={books} />
+              }} />
             </div>
 
             {/* Right Column */}
             <div className="column is-8">
-              <BookDetail />
+              <Route path="/books/:id" render={(routeProps) => {
+                const bookId = routeProps.match.params.id
+                const book = books.find((b) => {
+                  return b._id === bookId
+                })
+                return <BookDetail book={book} />
+              }} />
             </div>
 
           </div>
